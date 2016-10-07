@@ -1,0 +1,54 @@
+<ion-view view-title="FAQ">
+  <ion-content>
+    <h1>How do I use toggle tasks?</h1>
+    <p>
+Sub toggle_timer()
+    
+    Dim dateTime As Date
+    dateTime = Now + TimeValue("00:00:05")
+    
+    Debug.Print dateTime
+    Application.OnTime dateTime, "toggle_timer_tasks"
+
+End Sub
+
+Private Sub toggle_timer_tasks()
+
+    Dim state As Boolean
+    Dim res As Variant
+    
+    If (toggle_task_api("STATE", "toggle2", "my.email@host.com", "password") = "true") Then
+        Debug.Print ("i'm a toggle task!")
+        MsgBox "Trigged by Toggle Task!"
+        res = toggle_task_api("TOGGLE", "toggle2", "my.email@host.com", "password")
+    Else
+        Debug.Print ("i'm toggled off...")
+    End If
+    toggle_timer
+    
+End Sub
+
+
+Function toggle_task_api(func As String, name As String, email As String, password As String)
+
+    Dim lngTimeout As Long
+    lngTimeout = 20000
+    Dim objHTTP As New WinHttp.WinHttpRequest
+    objHTTP.SetTimeouts lngTimeout, lngTimeout, lngTimeout, lngTimeout
+    
+    Dim URL As String
+    URL = "https://toggle-tasks.herokuapp.com/" & func & "?email=" & email & "&password=" & password & "&name=" & name & ""
+     
+    Debug.Print URL
+    objHTTP.Open "GET", URL, False
+    objHTTP.setRequestHeader "Content-Type", "application/json"
+    objHTTP.Send ("")
+    Debug.Print objHTTP.Status
+    Debug.Print objHTTP.ResponseText
+    toggle_task_api = (objHTTP.ResponseText)
+    
+End Function
+</p>
+  </ion-content>
+</ion-view>
+ 

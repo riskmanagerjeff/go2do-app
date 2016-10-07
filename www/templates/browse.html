@@ -1,0 +1,30 @@
+<ion-view view-title="Toggle-Tasks">
+  <ion-content>
+    <!--ion-list>         
+        <ion-toggle ng-click="login()" toggle-class="toggle-calm">Toggle-In</ion-toggle>        
+    </ion-list--> 
+    <!--form ng-submit="doLogin()"-->
+      <div class="list">
+
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="loginData.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password">
+        </label>
+        <label class="item">
+          <!--button class="button button-block button-calm" type="submit">Log in</button-->
+          <button class="button button-block button-calm" ng-click="doLogin()">Log in</button>
+        </label>
+
+        
+        <label class="item" ng-if="signUpButton">
+          <button class="button button-block button-calm" ng-click="doSignUp()">Sign up</button>
+        </label>
+
+      </div>
+    <!--/form-->
+  </ion-content>
+</ion-view>

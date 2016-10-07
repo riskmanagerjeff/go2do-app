@@ -1,0 +1,31 @@
+<ion-view view-title="My Toggle-Tasks" hide-back-button="true">
+  <ion-content>
+    <ion-list>
+      <!--ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}"-->
+      <!--ion-item ng-repeat="playlist in playlists"-->
+      <!--ion-item--> 
+      
+  	  <div ng-repeat="playlist in playlists" ng-click="toggleMSG(playlist.name, playlist.message)">	
+  	  	
+	    <ion-toggle ng-click="toggleID(playlist._id, playlist.name,playlist.state); $event.stopPropagation();" ng-model="playlist.state" toggle-class="toggle-calm">
+	      {{playlist.name}}: 
+	      <div style="float:right;">{{playlist.message}}</div>
+	    </ion-toggle>
+
+	  </div>
+	  
+	  <button style="margin-top: 0px; margin-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px;" class="button button-full button-calm" ng-click="toggleNEW();">
+	    New Toggle
+	  </button>
+
+  
+
+
+	  <!--div ng-repeat="playlist in playlists" >
+	  <ion-toggle ng-click="toggleID(playlist.name,playlist.state)" ng-model="playlist.state" toggle-class="toggle-calm">{{playlist.name}}: </ion-toggle>
+	  <h6 ng-click="toggleMSG(playlist.name)">{{playlist.message}}</h6>
+      </div-->	
+
+    </ion-list>
+  </ion-content>
+</ion-view>

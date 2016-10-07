@@ -1,0 +1,19 @@
+<ion-view view-title="Logger" hide-back-button="true">
+  <ion-content>
+    
+    
+    
+    <ion-scroll delegate-handle="small" direction="y" style="height: 100vh">
+    <ion-list>
+  	  <ion-item ng-repeat="log in logs">	
+  	  	{{log.dateTimeStamp}}
+  	  	<div style="float:right;">{{log.entry}}</div>
+  	  </ion-item>
+  	</ion-list>
+  	</ion-scroll>
+	
+	
+    
+  </ion-content>
+</ion-view>
+ 
