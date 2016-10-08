@@ -161,17 +161,64 @@ angular.module('starter.controllers', [])
 
 .controller('GridCtrl', function($scope, $stateParams, $ionicModal, $timeout, $http, $state, $ionicScrollDelegate, DATA) {
 
+  $scope.innerWidth = $window.innerWidth
+
   $scope.$on('$ionicView.enter', function(e) {
     console.log('GridCtrl: $ionicView.enter')
     
     //$ionicScrollDelegate.$getByHandle('small').scrollBottom();
     $scope.playlists = DATA.toggles;
+    $scope.innerWidth = $window.innerWidth
   });
+
+  angular.element(window).on('resize', windowResizeHandler);
+  function windowResizeHandler( ) {
+
+    console.log('width=',$window.innerWidth,'   height=',$window.innerHeight)
+    $scope.$apply(function(){
+      console.log('refresh this view');
+      $scope.innerWidth = $window.innerWidth
+    });
+      
+  }
 
   setInterval(function() {
     $scope.playlists = DATA.toggles;
   }, (1/6)*60*1000);
   
+
+
+
+/*
+  $scope.innerWidth = $window.innerWidth
+  fakeData = [];
+  for (i=0;i<49;i++) {
+    fakeData.push({name:i.toString()});
+  }
+
+  $scope.playlists = fakeData;
+
+  $scope.$on('$ionicView.enter', function(e) {
+    //$scope.refresh();
+    $scope.innerWidth = $window.innerWidth
+  });
+
+  angular.element(window).on('resize', windowResizeHandler);
+
+  function windowResizeHandler( ) {
+
+    console.log('width=',$window.innerWidth,'   height=',$window.innerHeight)
+    $scope.$apply(function(){
+      console.log('refresh this view');
+
+      $scope.innerWidth = $window.innerWidth
+
+
+    });
+      
+  }
+*/
+
 
 })
 
