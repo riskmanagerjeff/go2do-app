@@ -167,7 +167,7 @@ angular.module('starter.controllers', [])
     //$ionicScrollDelegate.$getByHandle('small').scrollBottom();
   });
 
-  $scope.playlists = $scope.playlists = DATA.toggles;
+  $scope.playlists = DATA.toggles;
   
 
 })
