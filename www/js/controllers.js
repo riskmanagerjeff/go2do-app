@@ -165,9 +165,12 @@ angular.module('starter.controllers', [])
     console.log('GridCtrl: $ionicView.enter')
     
     //$ionicScrollDelegate.$getByHandle('small').scrollBottom();
+    $scope.playlists = DATA.toggles;
   });
 
-  $scope.playlists = DATA.toggles;
+  setInterval(function() {
+    $scope.playlists = DATA.toggles;
+  }, (1/6)*60*1000);
   
 
 })
