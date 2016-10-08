@@ -159,9 +159,9 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('GridCtrl', function($scope, $stateParams, $ionicModal, $timeout, $http, $state, $ionicScrollDelegate, DATA) {
+.controller('GridCtrl', function($scope, $stateParams, $ionicModal, $timeout, $http, $state, $ionicScrollDelegate, $window, DATA) {
 
-  $scope.innerWidth = $window.innerWidth
+  $scope.innerWidth = $window.innerWidth  // dont forget to include $window in the function state params!!!
 
   $scope.$on('$ionicView.enter', function(e) {
     console.log('GridCtrl: $ionicView.enter')
