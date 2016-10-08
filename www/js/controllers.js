@@ -26,7 +26,7 @@ angular.module('starter.controllers', [])
       DATA.lastUserActionDateTime = Date();
     }*/
 
-    $http.get("https://toggle-tasks.herokuapp.com/GETALL", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password } })
+    $http.get(DATA.app.url + "/GETALL", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password } })
     .success(function(ret) {
     
       if (ret=='') {
@@ -54,7 +54,7 @@ angular.module('starter.controllers', [])
   $scope.toggleID = function(_id, name, state) {
     //console.log(_id, " toggling", name, "from", !state, "to", state);
 
-    $http.get("https://toggle-tasks.herokuapp.com/TOGGLE", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password, "name": name } })
+    $http.get(DATA.app.url + "/TOGGLE", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password, "name": name } })
     .success(function(data) {
       console.log("toggleNEW", data )
       $scope.refresh(); // then refresh the ui, to get the new toggle
@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
   $scope.toggleNEW = function(name, state) {
     console.log("create a new toggle")
 
-    $http.get("https://toggle-tasks.herokuapp.com/NEW", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password } })
+    $http.get(DATA.app.url + "/NEW", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password } })
     .success(function(data) {
       console.log("toggleNEW", data )
       $scope.refresh(); // then refresh the ui, to get the new toggle
@@ -121,11 +121,11 @@ angular.module('starter.controllers', [])
       //console.log('new message', toggle.newMessage);
       if (!(toggle===undefined) && toggle.action == 'Save') {
 
-        $http.get("https://toggle-tasks.herokuapp.com/MESSAGE", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password, "name": name, "message": $scope.popup.toggle.newMessage } })
+        $http.get(DATA.app.url + "/MESSAGE", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password, "name": name, "message": $scope.popup.toggle.newMessage } })
         .success(function(data) {
 
           if (!(toggle.newName===undefined)) {
-            $http.get("https://toggle-tasks.herokuapp.com/NAME", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password, "name": name, "newName": $scope.popup.toggle.newName } })
+            $http.get(DATA.app.url + "/NAME", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password, "name": name, "newName": $scope.popup.toggle.newName } })
             .success(function(data) {
               myPopup.close();           
               $scope.refresh();    
@@ -145,7 +145,7 @@ angular.module('starter.controllers', [])
       }
       else if (!(toggle===undefined) && toggle.action == 'Delete') {
 
-        $http.get("https://toggle-tasks.herokuapp.com/DELETE", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password, "name": name } })
+        $http.get(DATA.app.url + "/DELETE", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password, "name": name } })
         .success(function(data) {
           myPopup.close();           
           $scope.refresh();    
@@ -188,36 +188,6 @@ angular.module('starter.controllers', [])
   
 
 
-
-/*
-  $scope.innerWidth = $window.innerWidth
-  fakeData = [];
-  for (i=0;i<49;i++) {
-    fakeData.push({name:i.toString()});
-  }
-
-  $scope.playlists = fakeData;
-
-  $scope.$on('$ionicView.enter', function(e) {
-    //$scope.refresh();
-    $scope.innerWidth = $window.innerWidth
-  });
-
-  angular.element(window).on('resize', windowResizeHandler);
-
-  function windowResizeHandler( ) {
-
-    console.log('width=',$window.innerWidth,'   height=',$window.innerHeight)
-    $scope.$apply(function(){
-      console.log('refresh this view');
-
-      $scope.innerWidth = $window.innerWidth
-
-
-    });
-      
-  }
-*/
 
 
 })
@@ -271,7 +241,9 @@ angular.module('starter.controllers', [])
     DATA.loginData.email = DATA.loginData.email.toLowerCase();
 
     if ((DATA.loginData.email != '') && (DATA.loginData.password != '')) {
-      $http.get("https://toggle-tasks.herokuapp.com/LOGIN", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password } })
+      //$http.get(DATA.app.url + "/LOGIN", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password } })
+      $http.get(DATA.app.url + "/LOGIN", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password } })
+      
       .success(function(data) { 
 
         console.log('data:', data);      
@@ -300,7 +272,7 @@ angular.module('starter.controllers', [])
     console.log('Doing Sign up', $scope.loginData);
 
     // add email and password to user collection
-    $http.get("https://toggle-tasks.herokuapp.com/SIGNUP", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password } })
+    $http.get(DATA.app.url + "/SIGNUP", { params: { "email": DATA.loginData.email, "password": DATA.loginData.password } })
     .success(function(data) { 
 
       console.log('data:', data);      

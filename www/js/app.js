@@ -10,6 +10,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   
   // factory function body that constructs shinyNewServiceInstance
   var obj = {
+    app:{url:''},
     toggles:{},
     logs:[],
     loginData:{email:'', password:''}
