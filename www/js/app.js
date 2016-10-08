@@ -57,6 +57,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.grid', {
+    url: '/grid',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/grid.html',
+        controller: 'GridCtrl'
+      }
+    }
+  })
+
   .state('app.logger', {
     url: '/logger',
     views: {

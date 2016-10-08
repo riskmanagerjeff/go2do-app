@@ -1,0 +1,163 @@
+<ion-view view-title="My Grid" hide-back-button="true">
+	<!--ion-nav-buttons side="left">
+	<button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()"></button>
+	</ion-nav-buttons-->
+  <ion-content class="gallery">
+	 <!--div masonry>
+	 	
+	    <div class="masonry-brick masonry-vw" ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.name}}">
+	        <img class="masonry-vw" ng-src="https://placehold.it/200x200" alt="A masonry brick">
+	        <p>{{playlist.name}}</p>
+	    </div>
+	</div-->
+    <!--ion-list>
+      
+	  <div class="grid-img image" ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.name}}">	
+  	  	<img ng-src="https://placehold.it/200x200" alt="A masonry brick">
+  	  	<p>{{playlist.name}}</p>
+	  </div>
+	  
+    </ion-list-->
+
+    <!--span class="gallery-item" ng-repeat="playlist in playlists">
+		<img src="https://placehold.it/200x200" width="250px">
+	</span-->
+
+
+    <!-- best one so far -->
+    <!--div class="row responsive-md" style="padding:0px; margin:0px;" ng-repeat="playlist in playlists" ng-if="$index % 3 === 0">
+        <div class="col col-33" ng-if="$index < playlists.length">
+        	<a href="#/app/playlists/{{playlist.name}}"> 
+            	<img ng-src="https://placehold.it/200x200" width="100%" />
+        	</a>
+        </div>
+        <div class="col col-33" ng-if="$index + 1 < playlists.length">
+            <a href="#/app/playlists/{{playlist.name}}"> 
+            	<img ng-src="https://placehold.it/200x200" width="100%" />
+        	</a>
+        </div>
+        <div class="col col-33" ng-if="$index + 2 < playlists.length">
+           <a href="#/app/playlists/{{playlist.name}}"> 
+            	<img ng-src="https://placehold.it/200x200" width="100%" />
+        	</a>
+        </div>     
+    </div-->
+
+      <div ng-if="innerWidth>1024">
+	    <div class="row responsive-md" style="padding:0px; margin:0px;" ng-repeat="playlist in playlists" ng-if="$index % 5 === 0">
+	        <div style="padding:0px; margin:0px;" class="col-20" ng-if="$index < playlists.length">
+	        	<a href="#/app/playlists/{{playlists[$index+0].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>
+	        <div style="padding:0px; margin:0px;" class="col-20" ng-if="$index + 1 < playlists.length">
+	            <a href="#/app/playlists/{{playlists[$index+1].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>
+	        <div style="padding:0px; margin:0px;" class="col-20" ng-if="$index + 2 < playlists.length">
+	           <a href="#/app/playlists/{{playlists[$index+2].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>    
+	        <div style="padding:0px; margin:0px;" class="col-20" ng-if="$index + 3 < playlists.length">
+	           <a href="#/app/playlists/{{playlists[$index+3].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>    
+	        <div style="padding:0px; margin:0px;" class="col-20" ng-if="$index + 4 < playlists.length">
+	           <a href="#/app/playlists/{{playlists[$index+4].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>     
+	    </div>
+	</div>
+	<div ng-if="innerWidth<=1024 && innerWidth>769">
+	    <div class="row responsive-md" style="padding:0px; margin:0px;" ng-repeat="playlist in playlists" ng-if="$index % 4 === 0">
+	        <div style="padding:0px; margin:0px;" class="col-25" ng-if="$index < playlists.length">
+	        	<a href="#/app/playlists/{{playlists[$index+0].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>
+	        <div style="padding:0px; margin:0px;" class="col-25" ng-if="$index + 1 < playlists.length">
+	            <a href="#/app/playlists/{{playlists[$index + 1].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>
+	        <div style="padding:0px; margin:0px;" class="col-25" ng-if="$index + 2 < playlists.length">
+	           <a href="#/app/playlists/{{playlists[$index + 2].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>   
+	        <div style="padding:0px; margin:0px;" class="col-25" ng-if="$index + 3 < playlists.length">
+	           <a href="#/app/playlists/{{playlists[$index + 3].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>       
+	    </div>
+	</div>
+	<div ng-if="innerWidth<=769 && innerWidth>568">
+	    <div class="row responsive-sm" style="padding:0px; margin:0px;" ng-repeat="playlist in playlists" ng-if="$index % 3 === 0">
+	        <div style="padding:0px; margin:0px;" class="col-33" ng-if="$index < playlists.length">
+	        	<a href="#/app/playlists/{{playlists[$index+0].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>
+	        <div style="padding:0px; margin:0px;" class="col-33" ng-if="$index + 1 < playlists.length">
+	            <a href="#/app/playlists/{{playlists[$index+1].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>
+	        <div style="padding:0px; margin:0px;" class="col-33" ng-if="$index + 2 < playlists.length">
+	           <a href="#/app/playlists/{{playlists[$index+2].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>     
+	    </div>
+	</div>
+	<div ng-if="innerWidth<=568">
+	    <div class="row responsive-sm" style="padding:0px; margin:0px;" ng-repeat="playlist in playlists" ng-if="$index % 2 === 0">
+	        <div style="padding:0px; margin:0px;" class="col-50" ng-if="$index < playlists.length">
+	        	<a href="#/app/playlists/{{playlists[$index+0].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>
+	        <div style="padding:0px; margin:0px;" class="col-50" ng-if="$index + 1 < playlists.length">
+	            <a href="#/app/playlists/{{playlists[$index+1].name}}"> 
+	            	<img ng-src="https://placehold.it/200x200" width="100%" />
+	        	</a>
+	        </div>  
+	    </div>
+	</div>
+
+
+
+
+    <!--div class="row responsive-sm" ng-repeat="playlist in playlists" ng-if="$index % 4 === 0">
+        <div class="col col-25" ng-if="$index < playlists.length">
+            <img ng-src="https://placehold.it/200x200" width="100%" />
+        </div>
+        <div class="col col-25" ng-if="$index + 1 < playlists.length">
+            <img ng-src="https://placehold.it/200x200" width="100%" />
+        </div>
+        <div class="col col-25" ng-if="$index + 2 < playlists.length">
+            <img ng-src="https://placehold.it/200x200" width="100%" />
+        </div>
+        <div class="col col-25" ng-if="$index + 3 < playlists.length">
+            <img ng-src="https://placehold.it/200x200" width="100%" />
+        </div>
+    </div-->
+
+
+
+
+    <!--div class="row responsive-md" style="padding:0px; margin:0px;">
+        <div class="col col-25" ng-repeat="playlist in playlists">
+            <img ng-src="https://placehold.it/200x200" width="100%" />
+        </div>
+    </div-->
+
+  </ion-content>
+</ion-view>
+
+

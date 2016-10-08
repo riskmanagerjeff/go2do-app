@@ -159,6 +159,19 @@ angular.module('starter.controllers', [])
 })
 
 
+.controller('GridCtrl', function($scope, $stateParams, $ionicModal, $timeout, $http, $state, $ionicScrollDelegate, DATA) {
+
+  $scope.$on('$ionicView.enter', function(e) {
+    console.log('GridCtrl: $ionicView.enter')
+    
+    //$ionicScrollDelegate.$getByHandle('small').scrollBottom();
+  });
+
+  $scope.playlists = $scope.playlists = DATA.toggles;
+  
+
+})
+
 .controller('LoggerCtrl', function($scope, $stateParams, $ionicModal, $timeout, $http, $state, $ionicScrollDelegate, DATA) {
 
   $scope.$on('$ionicView.enter', function(e) {
