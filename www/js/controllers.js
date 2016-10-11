@@ -185,10 +185,6 @@ angular.module('starter.controllers', [])
   setInterval(function() {
     $scope.playlists = DATA.toggles;
   }, (1/6)*60*1000);
-  
-
-
-
 
 })
 
