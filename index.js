@@ -42,27 +42,6 @@ http.listen(process.env.PORT || 5000, function(){
 });
 
 
-var mongodb = require('mongodb'); // npm install mongodb
-var ObjectId = require('mongodb').ObjectId; 
-
-var MongoClient = mongodb.MongoClient;
-var uri = 'mongodb://toggle:task@ds015924.mlab.com:15924/heroku_tjph47fd';
-var toggles;
-var users;
-var logs;
-
-MongoClient.connect(uri, function (err, db) {
-  if (err) {
-    console.log('Unable to connect to the mongoDB server. Error:', err);
-  } else {
-    //HURRAY!! We are connected. :)
-    console.log('Connection established to', uri);
-    toggles = db.collection('toggles');
-    users = db.collection("Users");
-    logs = db.collection("logs");
-    
-  }   
-});
 
 
 app.get('/', function(request, response) {
